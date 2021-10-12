@@ -1,16 +1,22 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import TicketItem from './TicketItem/TicketItem';
+import TicketItem from '../TicketItem/TicketItem';
+import { getAllTodos } from './ticketList.slice';
+import { getAllTodo } from './ticketList.selectors';
+import { STATUSES } from '../../../types/enums';
 
-import { getAllTodos } from '../../../store/slice';
-import { getAllTodo } from './ticketList.selector';
+import './ticketList.scss';
 
-import './style.scss';
+const sortingOrder: STATUSES[] = [
+  STATUSES.DONE,
+  STATUSES.IN_PROGRESS,
+  STATUSES.TODO,
+];
 
 const TicketList = (): JSX.Element => {
   const dispatch = useDispatch();
-
-  const allTodos = useSelector(getAllTodo);
+  const todo = useSelector(getAllTodo);
+  const sortedList = [...todo].sort((a, b) => sortingOrder.indexOf(a.status) - sortingOrder.indexOf(b.status));
 
   useEffect(() => {
     dispatch(getAllTodos());
@@ -20,12 +26,12 @@ const TicketList = (): JSX.Element => {
     <div className="ticket__list">
       <h1 className="ticket__list_title">Ticket List</h1>
       <div className="ticket__list_container">
-        {allTodos.map((el) => (
+        {sortedList.map((item) => (
           <TicketItem
-            key={el.id}
-            id={el.id}
-            title={el.title}
-            status={el.status}
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            status={item.status}
           />
         ))}
       </div>

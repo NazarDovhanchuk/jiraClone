@@ -1,0 +1,23 @@
+.board {
+  &__container {
+    display: flex;
+    flex-basis: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+  
+    height: 300px;
+    overflow-y: scroll;
+    scroll-behavior: auto;
+
+    > div {
+      flex-basis: 33%;
+    }
+  }
+
+  &__title {
+    margin-left: 20px;
+  }
+}

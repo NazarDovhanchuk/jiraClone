@@ -56,7 +56,8 @@
     "no-alert": "error",
     "eol-last": "error",
     "semi": "error",
-    "no-console": "off"
+    "no-console": "off",
+    "max-len": [140]
   },
   "overrides": []
 }

@@ -1,19 +1,23 @@
 import React from 'react';
-import Todo from './Todo/Todo';
+import { useSelector } from 'react-redux';
+import Column from './Column/Column';
+import { STATUSES } from '../../../types/enums';
+import { getAllTodo } from '../TicketList/ticketList.selectors';
+import './board.scss';
 
-import './style.scss';
-import InProgress from './InProgress/InProgress';
-import Done from './Done/Done';
+const Board = (): JSX.Element => {
+  const items = useSelector(getAllTodo);
 
-const Board = (): JSX.Element => (
-  <div className="board">
-    <h1 className="board__title">Board</h1>
-    <div className="board__container">
-      <Todo />
-      <InProgress />
-      <Done />
+  return (
+    <div className="board">
+      <h1 className="board__title">Board</h1>
+      <div className="board__container">
+        <Column title="TODO" status={STATUSES.TODO} items={items} />
+        <Column title="IN PROGRESS" status={STATUSES.IN_PROGRESS} items={items} />
+        <Column title="DONE" status={STATUSES.DONE} items={items} />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Board;

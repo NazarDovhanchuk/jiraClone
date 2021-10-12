@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button button without text 1`] = `
+<div>
+  <h3
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    
+  </h3>
+  <div
+    className="progress"
+  />
+</div>
+`;
+
+exports[`Column button without text 1`] = `
+<div>
+  <h3
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    
+  </h3>
+  <div
+    className="progress"
+  />
+</div>
+`;
+
+exports[`Column column with  1`] = `
+<div>
+  <h3
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    
+  </h3>
+  <div
+    className="progress"
+  />
+</div>
+`;
+
+exports[`Column column with render 1`] = `
+<div>
+  <h3
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    
+  </h3>
+  <div
+    className="progress"
+  />
+</div>
+`;
